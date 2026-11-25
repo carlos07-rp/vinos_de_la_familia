@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: vintalytics
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: VINTALYTICS_DATA
+        value: /var/data/vintalytics
+    disk:
+      name: finca
+      mountPath: /var/data
+      sizeGB: 1
