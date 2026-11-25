@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VINTALYTICS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">V</div>
+      <div>
+        <strong>VINTALYTICS</strong>
+        <span>Wine Intelligence</span>
+      </div>
+    </div>
+    <nav id="navigation">
+      <button class="nav-item active" data-page="dashboard"><span class="nav-icon">⌂</span><span>Dashboard</span></button>
+      <button class="nav-item" data-page="lotes"><span class="nav-icon">◫</span><span>Lotes</span></button>
+      <button class="nav-item" data-page="laboratorio"><span class="nav-icon">⌁</span><span>Laboratorio</span></button>
+      <button class="nav-item" data-page="inteligencia"><span class="nav-icon">✦</span><span>Inteligencia</span></button>
+      <button class="nav-item" data-page="catas"><span class="nav-icon">◉</span><span>Catas y observaciones</span></button>
+      <button class="nav-item" data-page="almacenamiento"><span class="nav-icon">▣</span><span>Almacenamiento</span></button>
+      <button class="nav-item" data-page="seguimiento"><span class="nav-icon">≡</span><span>Seguimiento</span></button>
+      <button class="nav-item" data-page="datos"><span class="nav-icon">◈</span><span>Datos y modelos</span></button>
+      <button class="nav-item" data-page="reportes"><span class="nav-icon">▤</span><span>Reportes</span></button>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-button" id="menuButton" aria-label="Abrir menú">☰</button>
+      <div>
+        <span class="eyebrow">Sistema de gestión enológica</span>
+        <h1 id="pageTitle">Dashboard ejecutivo</h1>
+      </div>
+      <button class="avatar" title="Perfil">AO</button>
+    </header>
+    <section id="content" class="content"></section>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h2 id="modalTitle">Nuevo lote</h2>
+        <button class="icon-button" id="closeModal" aria-label="Cerrar">×</button>
+      </div>
+      <form id="loteForm">
+        <div class="form-grid">
+          <label>Código del lote*<input name="codigo" required placeholder="LT-2026-001"></label>
+          <label>Nombre del lote*<input name="nombre" required placeholder="Reserva Parcela Norte"></label>
+          <label>Variedad de uva<input name="variedad" placeholder="Malbec"></label>
+          <label>Añada<input name="anada" placeholder="2026"></label>
+          <label>Tipo de vino<select name="tipo"><option>Tinto</option><option>Blanco</option><option>Rosado</option><option>Espumoso</option><option>Dulce</option></select></label>
+          <label>Etapa actual<select name="etapa"><option>Elaboración</option><option>Fermentación</option><option>Crianza</option><option>Almacenamiento</option><option>Finalizado</option></select></label>
+          <label>Fecha de inicio<input type="date" name="fecha"></label>
+          <label>Responsable<input name="responsable" placeholder="Nombre"></label>
+          <label class="full">Descripción<textarea name="descripcion" rows="3"></textarea></label>
+          <label class="full">Observaciones<textarea name="observaciones" rows="3"></textarea></label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="button secondary" id="cancelModal">Cancelar</button>
+          <button type="submit" class="button primary">Guardar lote</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
